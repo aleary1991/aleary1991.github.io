@@ -1,0 +1,24 @@
+.title{
+	font-size: 50px;
+}
+
+@media (min-width:0px){
+	.maincolumn{
+		display:inline-block;
+		width:400px;
+	}
+	.secondcolumn{
+		display: none;
+	}
+}
+
+@media (min-width:850px){
+	.maincolumn{
+		display:inline-block;
+		width:600px;
+	}
+	.secondcolumn{
+		display:inline-block;
+		width:200px;
+	}
+}
