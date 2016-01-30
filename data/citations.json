@@ -1,0 +1,77 @@
+[	{"Title":"Measurement of the first ionization potential of astatine by laser ionization spectroscopy",
+	"Label":"Astatine","CitedBy":31, "Year":2013,"Author":false, 
+	"URL":"http://www.nature.com/ncomms/journal/v4/n5/abs/ncomms2819.html"},
+
+	{"Title":"Magnetic and quadrupole moments of neutron deficient 58-62Cu isotopes",
+	"Label":"Copper","CitedBy":26, "Year":2011,"Author":false,
+	"URL":"http://www.sciencedirect.com/science/article/pii/S0370269311008549"},
+
+	{"Title":"Collinear Resonance Ionization Spectroscopy of Neutron-Deficient Francium Isotopes",
+	"Label":"Francium","CitedBy":23, "Year":2013,"Author":false,
+	"URL":"http://journals.aps.org/prl/abstract/10.1103/PhysRevLett.111.212501"},
+
+	{"Title":"Development of the CRIS (Collinear Resonant Ionisation Spectroscopy) beam line",
+	"Label":"CRIS","CitedBy":22, "Year":2012,"Author":true,
+	"URL":"http://iopscience.iop.org/1742-6596/381/1/012070"},
+
+	{"Title":"Nuclear mean-square charge radii of 63, 64, 66, 68− 82 Ga nuclei: No anomalous behavior at N= 32",
+	"Label":"Gallium","CitedBy":19, "Year":2012,"Author":true,
+	"URL":"http://journals.aps.org/prc/abstract/10.1103/PhysRevC.86.034329"},
+
+	{"Title":"A dedicated decay-spectroscopy station for the collinear resonance ionization experiment at ISOLDE",
+	"Label":"CRIS-DSS","CitedBy":18, "Year":2013,"Author":false,
+	"URL":"http://www.sciencedirect.com/science/article/pii/S0168900212016464"},
+
+	{"Title":"Laser assisted decay spectroscopy at the CRIS beam line at ISOLDE",
+	"Label":"LADS","CitedBy":15, "Year":2013,"Author":false,
+	"URL":"http://link.springer.com/article/10.1007/s10751-013-0820-y"},
+
+	{"Title":"Decay-Assisted Laser Spectroscopy of Neutron-Deficient Francium",
+	"Label":"DALS","CitedBy":13, "Year":2014,"Author":false,
+	"URL":"http://journals.aps.org/prx/abstract/10.1103/PhysRevX.4.011055"},
+
+	{"Title":"The collinear resonance ionization spectroscopy (CRIS) experimental setup at CERN-ISOLDE",
+	"Label":"CRIS","CitedBy":12, "Year":2013,"Author":false,
+	"URL":"http://www.sciencedirect.com/science/article/pii/S0168583X13007088"},
+
+	{"Title":"First on-line results from the CRIS (Collinear Resonant Ionisation Spectroscopy) beam line at ISOLDE",
+	"Label":"CRIS","CitedBy":9, "Year":2013,"Author":true,
+	"URL":"http://link.springer.com/article/10.1007/s10751-013-0833-6"},
+
+	{"Title":"Laser spectroscopy of francium isotopes at the borders of the region of reflection asymmetry",
+	"Label":"Francium","CitedBy":8, "Year":2014,"Author":false,
+	"URL":"http://journals.aps.org/prc/abstract/10.1103/PhysRevC.90.014317"},
+
+	{"Title":"Laser spectroscopy of gallium isotopes beyond N= 50",
+	"Label":"Gallium","CitedBy":8, "Year":2012,"Author":false,
+	"URL":"http://iopscience.iop.org/1742-6596/381/1/012071"},
+
+	{"Title":"Nuclear moments and charge radii of neutron-deficient francium isotopes and isomers",
+	"Label":"Francium","CitedBy":4, "Year":2015,"Author":false,
+	"URL":"http://journals.aps.org/prc/abstract/10.1103/PhysRevC.91.044307"},
+
+	{"Title":"Direct observation of an isomeric state in 98Rb and nuclear properties of exotic rubidium isotopes measured by laser spectroscopy",
+	"Label":"Rubidium","CitedBy":3, "Year":2015,"Author":true,
+	"URL":"http://link.springer.com/10.1140/epja/i2015-15023-2"},
+
+	{"Title":"CRIS: A new method in isomeric beam production",
+	"Label":"CRIS","CitedBy":2, "Year":2013,"Author":false,
+	"URL":"http://www.epj-conferences.org/articles/epjconf/abs/2013/24/epjconf_hias2013_01007/epjconf_hias2013_01007.html"},
+
+	{"Title":"Internal decay of the (10−) intruder state in Tl 184",
+	"Label":"Thallium","CitedBy":1, "Year":2015,"Author":false,
+	"URL":"http://journals.aps.org/prc/abstract/10.1103/PhysRevC.92.014325"},
+
+	{"Title":"The Collinear Fast Beam laser Spectroscopy (Cfbs) experiment at Triumf",
+	"Label":"TRIUMF","CitedBy":0, "Year":2016,"Author":true,
+	"URL":"http://www.sciencedirect.com/science/article/pii/S0168900215015648"},
+
+	{"Title":"α-decay study of Tl",
+	"Label":"Thallium","CitedBy":0, "Year":2016,"Author":false,
+	"URL":"http://iopscience.iop.org/article/10.1088/0954-3899/43/2/025102/meta"},
+
+	{"Title":"New Techniques of Laser Spectroscopy on Exotic Isotopes of Gallium and Francium",
+	"Label":"Thesis","CitedBy":30, "Year":2013,"Author":true,
+	"URL":"http://cds.cern.ch/record/1551521/files/CERN-THESIS-2013-040.pdf"}
+
+	]
