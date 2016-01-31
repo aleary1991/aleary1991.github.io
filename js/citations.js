@@ -1,19 +1,57 @@
 var width = $(window).width();
 var height = $(window).height()-50;
 
+var sortByAuthor = false;
+var sortByYear = false;
+
+function showAll(){
+    sortByAuthor = false;
+    sortByYear = false;
+  }
+
+function viewByAuthor(){
+    sortByAuthor = true;
+    sortByYear = false;
+  }
+
+function viewByYear(){
+    sortByYear = true;
+    sortByAuthor = false;
+  }
+
 console.log(width);
 console.log(height);
 
 var rscale = d3.scale.linear();
 
-rscale.domain([0,5]).range([10,height/10]);
+rscale.domain([0,5]).range([0,100]);
 
 function showCitations(data){
+
+  var buttons = d3.select("body").append("g");
+
+  buttons.append("input")
+    .attr("type","button")
+    .attr("class","button")
+    .attr("value","View All")
+    .attr("onclick","showAll()");
+
+  buttons.append("input")
+    .attr("type","button")
+    .attr("class","button")
+    .attr("value","View My Work")
+    .attr("onclick","viewByAuthor()");
+
+    buttons.append("input")
+    .attr("type","button")
+    .attr("class","button")
+    .attr("value","View By Year")
+    .attr("onclick","viewByYear()");
 
   var force = d3.layout.force()
     .nodes(data)
     .size([width, height])
-    .charge(-350)
+    .charge(-200)
     .on("tick", tick)
     .start();
 
@@ -49,12 +87,30 @@ function showCitations(data){
     .style("stroke", function(d, i) { return 'black'; })
     .call(force.drag);
 
-  function tick() {
-    circle.attr("transform", transform);;
-    text.attr("transform", transform);
+  d3.select("body")
+    .on("mousedown", mousedown);
+
+  function mousedown() {
+    data.forEach(function(o, i) {
+      o.x += (Math.random() - .5) * 10;
+      o.y += (Math.random() - .5) * 10;
+    });
+    force.resume();
   }
 
-  function transform(d){
-    return "translate(" + d.x + "," + d.y + ")";
+  function tick(e) {
+    var k = 10*e.alpha;
+    data.forEach(function(o,i) {
+      if (sortByAuthor == true && o.Author == true){
+        o.x += 2*k;
+      } else if (sortByYear == true){
+        o.x += (2013-parseInt(o.Year))*-1*k;
+      }
+    });
+
+    circle.attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+    text.attr("x", function(d) { return d.x; })
+      .attr("y", function(d) { return d.y; });
   }
 }
