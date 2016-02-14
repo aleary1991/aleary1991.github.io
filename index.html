@@ -44,8 +44,8 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#citations">Citations</a></li>
+            <li><a href="#science">Science Work</a></li>
+            <li><a href="#publications">Publications</a></li>
             <li><a href="#sport">Sport</a></li>
             <li><a href="#hobbies">Hobbies</a></li>
           </ul>
@@ -64,17 +64,20 @@
         <p>On top of this I mainly spend my time trying to fruitlessly convince Canadians that football is the greatest sport in the world...</p>
       </div>
 
-            <div class="jumbotron" id="about">
-        <h1>Thomas Procter</h1>
+      <div class="jumbotron" id="science">
+        <h1>Science Work</h1>
         <p>This is my about</p>
       </div>
 
-            <div class="jumbotron" id="citations">
-        <h1>Thomas Procter</h1>
-        <p>This is my papers</p>
+      <div class="jumbotron" id="publications">
+        <h1>Publications</h1>
+        <p>In my physics days I was fortunate enough to publish and be co-author on a selection of papers.  As the material is pretty (very) dry I have refrained from listing all the titles here.  If you're interested you can click the circles to check out the papers or click on the buttons to view them in different ways.</p>
+        </br>
+        <div id="citations"></div>
+        <div id="xbuttons" class ="buttons"></div>
       </div>
 
-            <div class="jumbotron" id="sport">
+      <div class="jumbotron" id="sport">
         <h1>Thomas Procter</h1>
         <p>This is my sport</p>
         <p>This is my sport</p>
@@ -84,7 +87,7 @@
         <p>This is my sport</p>
       </div>
 
-            <div class="jumbotron" id="hobbies">
+      <div class="jumbotron" id="hobbies">
         <h1>Thomas Procter</h1>
         <p>This is my hobbies</p>
       </div>
@@ -98,8 +101,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/d3.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <!-- script for publications viz -->
+    <script src="js/publications.js" charset="utf-8"></script>
+    <script>
+      d3.json("/data/publications.json", function(data) {
+        console.log(data);
+        showCitations(data);
+      });
+    </script>
   </body>
 </html>
 
