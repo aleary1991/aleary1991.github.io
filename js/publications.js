@@ -1,22 +1,12 @@
-var windowwidth = $(window).width();
-var windowheight = $(window).height();
-var width = 800;
+var margin = {top: 0, bottom: 0, left: 10, right: 10};
+var width = parseInt(d3.select('#canvas').style('width'), 10);
+width = width - margin.left - margin.right;
+
 var height = 400;
-if (height > windowheight){
-  height = windowheight*2/3;
-}
-if (width > windowwidth){
-  width = windowwidth*2/3;
-}
 
 var sortByAuthorX = false;
 var sortByYearX = false;
 var sortByCitationsX = false;
-var sortByAuthorY = false;
-var sortByYearY = false;
-var sortByCitationsY = false;
-var authorLabels = ["First Author:", "Contributing Author:"];
-var yearLabels = ["2011:","2012:","2013:","2014:","2015:","2016:"];
 
 var maxCitations = 0;
 var minCitations = 0;
@@ -48,34 +38,6 @@ function viewByCitationsX(){
   sortByYearX = false;
   sortByAuthorX = false;
   sortByCitationsX = true;
-  d3.select("#labels").remove();
-}
-
-function showAllY(){
-    sortByAuthorY = false;
-    sortByYearY = false;
-    sortByCitationsY = false;
-    d3.select("#labels").remove();
-  }
-
-function viewByAuthorY(){
-    sortByAuthorY = true;
-    sortByYearY = false;
-    sortByCitationsY = false;
-    d3.select("#labels").remove();
-  }
-
-function viewByYearY(){
-    sortByYearY = true;
-    sortByAuthorY = false;
-    sortByCitationsY = false;
-    d3.select("#labels").remove();
-  }
-
-function viewByCitationsY(){
-  sortByYearY = false;
-  sortByAuthorY = false;
-  sortByCitationsY = true;
   d3.select("#labels").remove();
 }
 
@@ -111,28 +73,28 @@ function showCitations(data){
     }
   }
 
-  var xbuttons = d3.select("#xbuttons").append("g").attr("class","buttons");
-  var ybuttons = d3.select("#ybuttons").append("g").attr("class","buttons");
+  var xbuttons = d3.select("#xbuttons").append("g");
 
   addButton(xbuttons,"Don't Sort","showAllX()");
   addButton(xbuttons,"Sort by Author","viewByAuthorX()");
   addButton(xbuttons,"Sort by Year","viewByYearX()");
   addButton(xbuttons,"Sort by Citations","viewByCitationsX()");
 
-  var force = d3.layout.force()
+  force = d3.layout.force()
     .nodes(data)
     .size([width, height])
     .charge(-150)
     .on("tick", tick)
     .start();
 
-  var svg = d3.select("#citations").append("svg")
+  var svg = d3.select("#canvas").append("svg")
     .attr("id","svg")
     .attr("class","svg")
     .attr("width", width)
     .attr("height", height);
 
   d3.select("#svg").append("line")
+    .attr("id", "bottomborder")
     .attr("x1", 0)
     .attr("x2", width)
     .attr("y1", height)
@@ -141,6 +103,7 @@ function showCitations(data){
     .attr("stroke","black");
 
   d3.select("#svg").append("line")
+    .attr("id", "topborder")
     .attr("x1", 0)
     .attr("x2", width)
     .attr("y1", 0)
@@ -157,6 +120,7 @@ function showCitations(data){
     .attr("stroke","black");
 
   d3.select("#svg").append("line")
+    .attr("id","rightborder")
     .attr("x1", width)
     .attr("x2", width)
     .attr("y1", 0)
@@ -219,17 +183,6 @@ function showCitations(data){
       } else if (sortByCitationsX == true){
         o.x += (o.CitedBy - maxCitations/2)*k*2/maxCitations;
       }
-      if (sortByAuthorY == true){
-        if (o.Author == true){
-          o.y += kh;
-        } else {
-          o.y += -kh;
-        }
-      } else if (sortByYearY == true){
-        o.y -= (parseInt(o.Year)-(minYear+maxYear)/2)*kh*2/(maxYear-minYear);
-      } else if (sortByCitationsY == true){
-        o.y -= (o.CitedBy - maxCitations/2)*kh*2/maxCitations;
-      }
     });
 
     circle.attr("cx", function(d) { return d.x; })
@@ -237,4 +190,30 @@ function showCitations(data){
     text.attr("x", function(d) { return d.x; })
       .attr("y", function(d) { return d.y; });
   }
+}
+
+d3.select(window).on('resize', resize); 
+
+function resize() {
+
+  width = parseInt(d3.select('#canvas').style('width'), 10);
+  width = width - margin.left - margin.right;
+
+  console.log(width);
+
+  d3.select("#svg")
+  .attr("width", width)
+  .attr("height", height);
+
+  d3.select("#bottomborder")
+  .attr("x2", width);
+
+  d3.select("#topborder")
+  .attr("x2", width);
+
+  d3.select("#rightborder")
+  .attr("x1", width)
+  .attr("x2", width);
+
+  force.size([width, height]).start();
 }
