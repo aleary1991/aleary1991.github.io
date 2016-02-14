@@ -142,6 +142,7 @@ function showCitations(data){
     .data(force.nodes())
     .enter()
     .append("a")
+    .attr("target","_blank")
     .attr("xlink:href", function(d){ return d.URL;})
     .append("circle")
     .attr("class","circles")
