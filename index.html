@@ -26,7 +26,8 @@
     <![endif]-->
   </head>
 
-  <body>
+  <!-- create body with scroll features-->
+  <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -38,13 +39,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Thomas Procter</a>
+          <a class="navbar-brand" href="#home">Thomas Procter</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="citations.html">Citations</a></li>
+            <li><a href="#citations">Citations</a></li>
+            <li><a href="#sport">Sport</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -53,29 +56,34 @@
     <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
+      <div class="jumbotron" id="home">
         <h1>Thomas Procter</h1>
-        <p>This is my first made webpage</p>
+        <p>This is my intro</p>
       </div>
 
-            <div class="jumbotron">
+            <div class="jumbotron" id="about">
         <h1>Thomas Procter</h1>
-        <p>This is my first made webpage</p>
+        <p>This is my about</p>
       </div>
 
-            <div class="jumbotron">
+            <div class="jumbotron" id="citations">
         <h1>Thomas Procter</h1>
-        <p>This is my first made webpage</p>
+        <p>This is my papers</p>
       </div>
 
-            <div class="jumbotron">
+            <div class="jumbotron" id="sport">
         <h1>Thomas Procter</h1>
-        <p>This is my first made webpage</p>
+        <p>This is my sport</p>
+        <p>This is my sport</p>
+        <p>This is my sport</p>
+        <p>This is my sport</p>
+        <p>This is my sport</p>
+        <p>This is my sport</p>
       </div>
 
-            <div class="jumbotron">
+            <div class="jumbotron" id="hobbies">
         <h1>Thomas Procter</h1>
-        <p>This is my first made webpage</p>
+        <p>This is my hobbies</p>
       </div>
 
     </div> <!-- /container -->
