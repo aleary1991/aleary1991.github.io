@@ -2,6 +2,13 @@ img.center {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding: 1%;
+}
+
+.facecenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     padding: 5%;
 }
 
@@ -10,8 +17,21 @@ img.right {
     padding: 20px;
 }
 
+.postercenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 iframe.center {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }

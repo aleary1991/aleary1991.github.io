@@ -13,6 +13,8 @@ var minCitations = 0;
 var maxYear = 0;
 var minYear = 3000;
 
+var globalData;
+
 function showAllX(){
     sortByAuthorX = false;
     sortByYearX = false;
@@ -52,11 +54,18 @@ function addButton(div,value,buttonfunction){
 console.log(width);
 console.log(height);
 
-var rscale = d3.scale.linear();
-
-rscale.domain([0,5]).range([0,80]);
-
 function showCitations(data){
+
+  var rscale = d3.scale.linear();
+  rscale.domain([0,5]).range([0,width/10]);
+
+  var chargescale = d3.scale.linear();
+  chargescale.domain([0,1000]).range([+50,-200]);
+
+  var fontscale = d3.scale.linear();
+  fontscale.domain([0,1000]).range([10,15]);
+
+  globalData = data;
 
   for (var i=0; i<data.length; i++){
     if (data[i].CitedBy > maxCitations){
@@ -73,6 +82,9 @@ function showCitations(data){
     }
   }
 
+  d3.select("#xbuttons").selectAll("*").remove();
+  d3.select("#canvas").selectAll("*").remove();
+
   var xbuttons = d3.select("#xbuttons").append("g");
 
   addButton(xbuttons,"Don't Sort","showAllX()");
@@ -80,10 +92,12 @@ function showCitations(data){
   addButton(xbuttons,"Sort by Year","viewByYearX()");
   addButton(xbuttons,"Sort by Citations","viewByCitationsX()");
 
+  console.log("Force: "+chargescale(width))
+
   force = d3.layout.force()
     .nodes(data)
     .size([width, height])
-    .charge(-150)
+    .charge(chargescale(width))
     .on("tick", tick)
     .start();
 
@@ -136,6 +150,7 @@ function showCitations(data){
     .attr("x", 0)
     .attr("y", 0)
     .attr("text-anchor", "middle")
+    .attr("font-size",fontscale(width)+"px")
     .text(function(d) { return d.Label; });
 
   var circle = svg.selectAll("a")
@@ -202,7 +217,9 @@ function resize() {
 
   console.log(width);
 
-  d3.select("#svg")
+  showCitations(globalData);
+
+  /*d3.select("#svg")
   .attr("width", width)
   .attr("height", height);
 
@@ -216,5 +233,5 @@ function resize() {
   .attr("x1", width)
   .attr("x2", width);
 
-  force.size([width, height]).start();
+  force.size([width, height]).start();*/
 }
