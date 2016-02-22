@@ -13,6 +13,8 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- My CSS -->
+    <link href="css/procter.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -48,6 +50,7 @@
             <li><a href="#publications">Publications</a></li>
             <li><a href="#sport">Sport</a></li>
             <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -57,16 +60,31 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron" id="home">
-        <h1>Thomas Procter</h1>
+        <h1><span title="Not the helpful kind that saves lives">Dr</span> Thomas Procter</h1>
       </br>
-        <p>I am a former nuclear physicist turned data visualizer researcher at <a target="_blank" href="https://thoughtexchange.com/about/our-team/">ThoughtExchange.</a></p>
-        <p>I pretty much moved from performing experiments and analyzing results on tiny, tiny things (atomic nuclei)  to finding more effective ways to communicate different bits of information to far bigger things (people).</p>
-        <p>On top of this I mainly spend my time trying to fruitlessly convince Canadians that football is the greatest sport in the world...</p>
+        <div class="row">
+          <div class="col-md-3">
+            <img class="center" src="images/tom-te-2.png" alt="Thomas Procter" style="width:80%; max-width: 200px;">
+          </div>
+          <div class="col-md-9">
+          <p>I am a former nuclear physicist turned data visualizer researcher at <a target="_blank" href="https://thoughtexchange.com/about/our-team/">ThoughtExchange.</a></p>
+          <p>I moved from performing experiments on tiny things (atomic nuclei) to finding more effective ways to communicate information to bigger things (people).</p>
+          </div>
+        </div>
       </div>
 
       <div class="jumbotron" id="science">
         <h1>Science Work</h1>
-        <p>This is my about</p>
+        <p>During my physics research days I used a technique called <a target="_blank" href="http://hyperphysics.phy-astr.gsu.edu/hbase/optmod/laspec.html" >Laser Spectroscopy</a> to study the nucleus inside radioactive atoms.  As the nucleus is so small (millions of times smaller than the width of a human hair!) it cannot be seen using conventional methods we would use for larger things (like shining a torch on an object).  Instead, we use a laser (aka a smaller, more powerful torch) and shine light on the electrons that surround the nucleus in the atom.  Under particular circumstances the electrons will absorb the light from the laser and re-emit it in a different direction.  The size and shape of the nucleus alters the "circumstances" that dictact when the electrons absorb and re-emit the light.  So by investigating when the electrons absorb and re-emit the light we can deduce information about the size of the nucleus in the middle.</p>
+
+
+        <p>I started my academic career studying undergraduate physics at the Universty of Manchester, England.  After obtaining my Masters I continued my studies with the University of Manchester and gained a PhD for my work on <a target="_blank" href="https://cds.cern.ch/record/1551521/files/CERN-THESIS-2013-040.pdf">New Techniques of Laser Spectroscopy on Exotic Isotopes of Gallium and Francium</a> based at the ISOLDE facility at CERN, Switzerland.</p>
+
+        <p>After my PhD I moved to TRIUMF, Canada's National Lab for Particle and Nuclear Physics to work as a Post Doc in the laser spectroscopy group.  At TRIUMF I worked on developing the experimental beamline and assisted in experiments on radioactive isotopes of gallium, francium and rubidium.</p>
+
+        <p>I moved from academia to industry after my Post Doc to give myself a new challenge, apply my skillsets in a different field and gain more stability in my work/life balance.</p> 
+
+        <p>Thoughtout my academic years I have presented my work at international conferences, been a part of scientific mentoring and ambassador programs, supervised students and participated in outreach activities.</p>
       </div>
 
       <div class="jumbotron" id="publications">
@@ -78,7 +96,7 @@
       </div>
 
       <div class="jumbotron" id="sport">
-        <h1>Thomas Procter</h1>
+        <h1>Sport</h1>
         <p>This is my sport</p>
         <p>This is my sport</p>
         <p>This is my sport</p>
@@ -88,8 +106,22 @@
       </div>
 
       <div class="jumbotron" id="hobbies">
-        <h1>Thomas Procter</h1>
-        <p>This is my hobbies</p>
+        <h1>Hobbies</h1>
+        <p>For my downtime away from work and sport I foray into several ventures of varying levels of usefulness.  With that time I try keep up to date with the latest video games, slowly improve my abilities on the guitar and read the books I feel I should have read years ago (mainly to distract myself on long journeys).  I also dabbled in the movie industry before I got swiftly knocked back into the real world upon discovering the harshness of YouTube comments...</p>
+        <iframe id="decay" class="center" src="http://www.youtube.com/embed/n-NwLUPZWZc">
+        </iframe>
+      </div>
+
+      <div class="jumbotron" id="contact">
+        <h1>Contact Me</h1>
+        <h2>Address:</h2>
+        <p>Vancouver, CANADA</p>
+        <h2>Email:</h2>
+        <p>thomas@procter.com</p>
+        <h2>Twitter:</h2>
+        <p><a target="_blank" href="https://twitter.com/tom_procter" >@tom_procter</a></p>
+        <h2>LinkedIn:</h2>
+        <p><a target="_blank" href="https://ca.linkedin.com/in/procterthomas" >Thomas Procter</a></p>
       </div>
 
     </div> <!-- /container -->
@@ -111,6 +143,19 @@
         console.log(data);
         showCitations(data);
       });
+
+      var cw = $('#hobbies').width()*0.7;
+      console.log("Hobiies Width"+cw);
+      $('#decay').css({'width':cw+'px'});
+      $('#decay').css({'height':(cw*9/16)+'px'});
+
+      $(window).on('resize', function(){
+        var cw = $('#hobbies').width()*0.7;
+        console.log("Hobiies Width"+cw);
+        $('#decay').css({'width':cw+'px'});
+        $('#decay').css({'height':(cw*9/16)+'px'});
+});
+
     </script>
   </body>
 </html>

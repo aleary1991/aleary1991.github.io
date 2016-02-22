@@ -1,36 +1,17 @@
-.title{
-	font-size: 50px;
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5%;
 }
 
-body{
-	margin-top: 20px;
+img.right {
+    float: right;
+    padding: 20px;
 }
 
-@media (min-width:0px){
-	.maincolumn{
-		display:inline-block;
-		width:480px;
-	}
-	.secondcolumn{
-		display: none;
-	}
-}
-
-@media (min-width:850px){
-	.maincolumn{
-		display:inline-block;
-		width:600px;
-	}
-	.secondcolumn{
-		display:inline-block;
-		width:200px;
-	}
-}
-
-.buttons {
-	margin:0 auto; 
-}
-
-.svg{
-	margin-left: 30px;
+iframe.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
