@@ -56,13 +56,13 @@ console.log(height);
 
 function showCitations(data){
 
-  var rscale = d3.scale.linear();
+  rscale = d3.scale.linear();
   rscale.domain([0,5]).range([0,width/10]);
 
-  var chargescale = d3.scale.linear();
+  chargescale = d3.scale.linear();
   chargescale.domain([0,1000]).range([+50,-200]);
 
-  var fontscale = d3.scale.linear();
+  fontscale = d3.scale.linear();
   fontscale.domain([0,1000]).range([10,15]);
 
   globalData = data;
@@ -217,9 +217,7 @@ function resize() {
 
   console.log(width);
 
-  showCitations(globalData);
-
-  /*d3.select("#svg")
+  d3.select("#svg")
   .attr("width", width)
   .attr("height", height);
 
@@ -233,5 +231,19 @@ function resize() {
   .attr("x1", width)
   .attr("x2", width);
 
-  force.size([width, height]).start();*/
+  force.size([width, height]).start();
+
+  fontscale.domain([0,1000]).range([10,15]);
+  rscale.domain([0,5]).range([0,width/10]);
+  chargescale.domain([0,1000]).range([+50,-200]);
+
+  force.charge(chargescale(width));
+
+  d3.select("#svg").selectAll("circle")
+    .data(force.nodes())
+    .attr("r", function(d,i) { return rscale(Math.sqrt(d.CitedBy/Math.PI)); });
+
+  d3.select("#svg").selectAll("text")
+    .data(force.nodes())
+        .attr("font-size",fontscale(width)+"px");
 }
